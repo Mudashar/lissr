@@ -1,0 +1,419 @@
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<style>
+		.w1{
+		
+			margin-top: 10%;
+			border-radius: 20px;
+			background-color: #F6FAFE;
+			
+		}
+		.w2{
+			margin-left: 10%;
+			margin-top: 10%;
+			font-size: 20px;
+			
+		}
+		
+		.w4{
+			margin-left: 10%;
+			margin-top: 10%;
+			margin-bottom: 10%;
+			font-size: 200px;
+			
+		}
+		
+		.w3{
+			
+		}
+		.left{
+			display: inLine;
+		}
+		.right{
+			display: inLine;
+			}
+			
+	.containerImg1 {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  display: none;
+}		
+.containerImg {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.containerImg img {
+  width: 100%;
+  height: auto;
+}
+
+.containerImg .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #21ace0;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.containerImg .btn:hover {
+  background-color: black;
+}
+
+.containerImg1 .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+
+	</style>
+<script>
+	$(window).on('load',function(){
+        $('#myModal').modal('show');
+    });
+	
+	var age= 0;
+	var investorData = new Array(1);
+	var obj ={
+		Name: '',
+		Age: '',
+		Ret_Age: '',
+		Risk_Level: '',
+		Car_Age: '0',
+		Home_age: '0',
+		Marriage_age: '0'
+	};
+	function start() {
+			var n = document.forms["myForm"]["name"].value;
+			var a = document.forms["myForm"]["age"].value;
+			var ra = document.forms["myForm"]["retirementage"].value;
+		if (n == "" ||a == "" ||ra == "" ) {
+			alert("All Field must be filled out");
+			document.location.reload();
+		  }
+		  var a1= Number(a);
+		  var ra1= Number(ra);
+		  if (ra1 < a1 ) {
+			alert("Retirement Age Should be grather than your age");
+			document.location.reload();
+		  }
+		   if (a1 < 18  || a1 > 50  ) {
+			alert("18 < Your Age < 50 ");
+			document.location.reload();
+		  }
+		  if ( ra1 < 60  || ra1 > 100  ) {
+			alert("60 < Retirement Age < 100 ");
+			document.location.reload();
+		  }
+		 
+			//document.getElementById('closeTheModel').click();
+		//var age = document.getElementById('demo').value ;
+		 var x = document.getElementById("frm1");
+		 /* var text = "";
+		  var i;
+		  for (i = 0; i < x.length -1 ;i++) {
+			text += x.elements[i].value + "<br>";
+		  }*/
+		  
+		  document.getElementById("demoage").innerHTML = x.elements[1].value;
+		 document.getElementById("demoname").innerHTML = x.elements[0].value;
+		  document.getElementById("demortrage").innerHTML = x.elements[2].value;
+		  document.getElementById("demorisklevel").innerHTML = x.elements[3].value;
+		   obj.Name = x.elements[0].value;
+		   obj.Age = x.elements[1].value;
+		   obj.Ret_Age = x.elements[2].value;
+		   obj.Risk_Level = x.elements[3].value;
+		   
+		   age = Number(a);
+		var x= setInterval(function(){
+			age = age + 1;
+		document.getElementById('demoage').innerHTML = age;
+		document.getElementById('aging').innerHTML = age;
+		if(age >= Number(ra)){
+			$('#myModal1').modal('show');
+		
+			clearInterval(x);
+		}
+		},700);
+	}
+	
+	function showDivCar() {
+    document.getElementById("car").style.display = "block";
+	document.getElementById("car1").style.display = "none";
+    document.getElementById("carage").innerHTML = "Age of: " +age ;
+	obj.Car_Age = age;
+	//alert('hi');
+	}
+	function showDivHome() {
+    document.getElementById("home").style.display = "block";
+    document.getElementById("home1").style.display = "none";
+    document.getElementById("homeage").innerHTML = "Age of: " +age ;
+	obj.Home_age = age;
+	}
+	function showDivMarriage() {
+    document.getElementById("marriage").style.display = "block";
+    document.getElementById("marriage1").style.display = "none";
+    document.getElementById("marriageage").innerHTML = "Age of: " +age ;
+	obj.Marriage_age = age;
+	}
+	
+	investorData[0] = obj;
+	
+	//-------csv----Part-----
+	
+	function convertArrayOfObjectsToCSV(args) {
+        var result, ctr, keys, columnDelimiter, lineDelimiter, data;
+
+        data = args.data || null;
+        if (data == null || !data.length) {
+            return null;
+        }
+
+        columnDelimiter = args.columnDelimiter || ',';
+        lineDelimiter = args.lineDelimiter || '\n';
+
+        keys = Object.keys(data[0]);
+
+        result = '';
+        result += keys.join(columnDelimiter);
+        result += lineDelimiter;
+
+        data.forEach(function(item) {
+            ctr = 0;
+            keys.forEach(function(key) {
+                if (ctr > 0) result += columnDelimiter;
+
+                result += item[key];
+                ctr++;
+            });
+            result += lineDelimiter;
+        });
+
+        return result;
+    }
+
+    function downloadCSV(args) {
+        var data, filename, link;
+
+        var csv = convertArrayOfObjectsToCSV({
+            data: investorData
+        });
+        if (csv == null) return;
+
+        filename = args.filename || 'export.csv';
+
+        if (!csv.match(/^data:text\/csv/i)) {
+            csv = 'data:text/csv;charset=utf-8,' + csv;
+        }
+        data = encodeURI(csv);
+
+        link = document.createElement('a');
+        link.setAttribute('href', data);
+        link.setAttribute('download', filename);
+        link.click();
+    }
+</script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+  <a class="navbar-brand" href="#">LiSSR</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     <!-- <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>-->
+	  <li class="nav-item ">
+        <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+      </li>
+      <!--<li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>-->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Manage
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Action2</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" onClick="document.location.reload(true)" href="#">Logout</a>
+        </div>
+      </li>
+      <!--<li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>-->
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center font-italic">Welcome to LiSSR</h5>
+        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>-->
+      </div>
+      <div class="modal-body">
+        <form id="frm1" name="myForm">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" minlength="5" required>
+          </div>
+		  <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Age:</label>
+            <input type="number" class="form-control" id="age" name="age" required>
+          </div>
+		  <div class="form-group">
+            <label for="recipient-name" class="col-form-label"> Retirement Age:</label>
+            <input type="number" class="form-control" id="retirementage" name="retirementage" required>
+          </div>
+		  <div class="form-group">
+			<label for="exampleFormControlSelect1">Risk Level</label>
+			<select class="form-control" id="risklevel">
+			  <option value="Low">Low</option>
+			  <option value="Moderate" checked>Moderate</option>
+			  <option value="High">High</option>
+			</select>
+		  </div>
+		  <div class="form-group">
+				<input type="submit" onclick="start()" data-dismiss="modal" class="form-control bg-info text-light" id="submit" value="submit">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+         
+        <!--<button type="button" display="hidden" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		-->
+     </div>
+    </div>
+  </div>
+</div>
+
+<!--- Processing model-->
+<div class="modal" tabindex="-1" role="dialog" id="myModal1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Your Journey:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+            <label for="recipient-name" class="col-form-label">Thank You for completing the journey.Please Wait while we fetch you the best recommendations.</label>
+			<a href='#' onclick='downloadCSV({ filename: "investor-data.csv" });'>Download CSV</a>
+
+
+       </div>
+		
+      <div class="modal-footer">
+         
+        <button type="button" display="hidden" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		
+     </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+	<div class="w1">
+		<nav class="navbar navbar-dark bg-info">
+		<a class="navbar-brand text-light">This is You</a>
+		</nav>
+		<div class="w2">
+			
+			<div class="w3"><div class="left">Age:-</div> <div class="right" id="demoage">Waiting...</div></div>
+			<div class="w3"><div class="left">Name:-</div> <div class="right" id="demoname">Waiting...</div></div>
+			<div class="w3"><div class="left">Rtr-Age:-</div> <div class="right"  id="demortrage">Waiting...</div></div>
+			<div class="w3"><div class="left">Risk Level:</div> <div class="right" id="demorisklevel">Waiting...</div></div>
+			
+		</div>
+		<div class="w2">
+			<div class="containerImg1" id="car">
+			  <img src="car.png" alt="Car" style="width:80%;height:150px;">
+			  <button class="btn" type="disabled" id="carage"></button>
+			</div>
+			<div class="containerImg1" id="home">
+			   <img src="home.png" alt="home" style="width:80%;height:150px;">
+			   <button class="btn" type="disabled" id="homeage"></button>
+			</div>
+			<div class="containerImg1" id="marriage">
+			   <img src="marriage.png" alt="marriage" style="width:80%;height:150px;">
+			    <button class="btn" type="disabled" id="marriageage"></button>
+			</div>
+		</div>
+	</div>
+		
+	</div>
+    <div class="col-sm">
+	<div class="w2">
+      <img src="aging3.gif"/>
+	  </div>
+	  <div class="w2">
+       <div class="w4" id="aging"></div>
+	   
+	  </div>
+    </div>
+    <div class="col-sm">
+	
+      <div class="w1">
+	  <nav class="navbar navbar-dark bg-info">
+	  <a class="navbar-brand text-light">Click to add in your list</a>
+	</nav>
+		<div class="containerImg" id="car1">
+		 <img src="car.png"  alt="Car" style="width:80%;height:150px;"></a>
+		 <button class="btn" type="button" onclick="showDivCar();">Car</button>
+		</div>
+		<div class="containerImg" id="home1">
+		   <a href="#" ><img src="home.png" alt="home" style="width:80%;height:150px;"></a>
+		  <button class="btn" onclick="showDivHome();">Home</button>
+		</div>
+		<div class="containerImg" id="marriage1">
+		   <a href="#" ><img src="marriage.png" alt="marriage" style="width:80%;height:150px;"></a>
+		   <button class="btn" onclick="showDivMarriage();">Marriage</button>
+		</div>
+	  </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

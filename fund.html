@@ -1,0 +1,213 @@
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	
+	
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" type="text/css" href="theme.css">
+	<style>
+		.fund{
+		display: none;
+		}
+		#footer{
+			display: none;
+		}
+	</style>
+<script>
+	$(window).on('load',function(){
+        $('#myModal3').modal('show');
+    });
+	
+	var age= 0;
+	
+	function start1() {
+			var n = document.forms["myForm1"]["fund"].value;
+		if (n == "") {
+			alert("Field must be filled out");
+			document.location.reload();
+		  }
+		  document.getElementById('funddiv').style.display = "block";
+		  
+		  document.getElementById('footer').style.display = "none";
+		  document.getElementById('fundid').innerHTML = "Your Fund:" +n+" - A moderate risk fund for long term investment";
+	}
+</script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+  <a class="navbar-brand" href="#">LiSSR</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     <!-- <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>-->
+	  <li class="nav-item ">
+        <a class="nav-link" onClick="document.location.reload(true)" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+	  <li class="nav-item ">
+        <a class="nav-link"  href="index3.html">Advisor </a>
+      </li>
+	  <li class="nav-item ">
+        <a class="nav-link"  href="#">Fund <span class="sr-only">(current)</span></a>
+      </li>
+      <!--<li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>-->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Help
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">AboutUs</a>
+          <a class="dropdown-item" href="#">ContactUs</a>
+          <div class="dropdown-divider"></div>
+        </div>
+      </li>
+      <!--<li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>-->
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0 bg-info text-light" type="submit">Search</button>
+      <button class="btn btn-outline-success my-2 my-sm-0 bg-info text-light" onClick="document.location.reload(true)" >Logout</button>
+    </form>
+  </div>
+</nav>
+<div class="modal" tabindex="-1" role="dialog" id="myModal3">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center font-italic">Fund Details:</h5>
+        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>-->
+      </div>
+      <div class="modal-body">
+        <form id="frm1" name="myForm1">
+          
+		  <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Fund ID:</label>
+            <input type="number" class="form-control" id="fund" name="fund" required>
+          </div>
+         
+		  <div class="form-group">
+				<input type="submit" onclick="start1()" data-dismiss="modal" class="form-control bg-info text-light" id="submit" value="submit">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+         
+        <!--<button type="button" display="hidden" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		-->
+     </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+<div class="container">
+  <div class="row">
+    
+	<div class="col-sm">
+	<div class="w1">
+		
+		
+		<div class="w2">
+		<div class="fund" id="funddiv">
+		
+		<h3 id="fundid"> </h3><br>
+			<table class="table">
+			  <thead class="thead-dark bg-info">
+				<tr>
+				  <th scope="col">Fund Id</th>
+				  <th scope="col">Description</th>
+				</tr>
+			  </thead>	  
+			  <tbody>
+				<tr>
+				  <th scope="row">505</th>
+				  <td> moderately risky fund long term invest</td>
+				</tr>
+				
+
+				<tr>
+				  <th scope="row">544</th>
+				  <td> moderately risky fund long term invest</td>
+				</tr>
+				<tr>
+				  <th scope="row">548</th>
+				  <td> medium risk fund. Investment for a long time</td>
+				</tr>
+				<tr>
+				  <th scope="row">549</th>
+				  <td> Moderate risky fund for investors with a long term goal</td>
+				</tr>
+				<tr>
+				  <th scope="row">529</th>
+				  <td> Long term investors who are looking for a medium rate risky fund and moderate returns.</td>
+				</tr>
+				<tr>
+				  <th scope="row">529</th>
+				  <td> Long term investors who are looking for a medium rate risky fund and moderate returns.</td>
+				</tr>
+				<tr>
+				  <th scope="row">512</th>
+				  <td> Fund for long term investment</td>
+				</tr>
+				<tr>
+				  <th scope="row">537</th>
+				  <td> moderately risky fund to optimize portfolio</td>
+				</tr>
+				<tr>
+				  <th scope="row">673</th>
+				  <td> safe fund long term invest</td>
+				</tr>
+				<tr>
+				  <th scope="row">669</th>
+				  <td>safe fund long term invest</td>
+				</tr>
+				<tr>
+				  <th scope="row">696</th>
+				  <td> safe fund for investors with a long term horizon</td>
+				</tr>
+			  </tbody>
+			</table>
+			<div>
+		</div>
+	</div>
+		
+	</div>
+
+  </div>
+  
+
+</div>
+
+</body>
+<hr>
+<footer class="w3-container w3-center w3-margin-top bg-info"  id="footer" style="background-color: #21ace0;height:100px;">
+  <p>On social media.</p>
+  
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  
+</footer>
+</html>

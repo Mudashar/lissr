@@ -1,0 +1,269 @@
+
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	
+	
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" type="text/css" href="theme.css">
+<script src="myjs.js"></script>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+  <a class="navbar-brand" href="#">LiSSR</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     <!-- <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>-->
+	  <li class="nav-item ">
+        <a class="nav-link" onClick="document.location.reload(true)" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+	  <li class="nav-item ">
+        <a class="nav-link"  href="adv.html">Advisor <span class="sr-only">(current)</span></a>
+      </li>
+	  <li class="nav-item ">
+        <a class="nav-link"  href="fund.html">Fund <span class="sr-only">(current)</span></a>
+      </li>
+      <!--<li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>-->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Help
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">AboutUs</a>
+          <a class="dropdown-item" href="#">ContactUs</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" onClick="document.location.reload(true)" href="#">Logout</a>
+        </div>
+      </li>
+      <!--<li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>-->
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0 bg-info text-light" type="submit">Search</button>
+      <button class="btn btn-outline-success my-2 my-sm-0 bg-info text-light" onClick="document.location.reload(true)" >Logout</button>
+    </form>
+  </div>
+</nav>
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center font-italic">Welcome to LiSSR</h5>
+        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>-->
+      </div>
+      <div class="modal-body">
+        <form id="frm1" name="myForm">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" minlength="5" required>
+          </div>
+		  <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Age:</label>
+            <input type="number" class="form-control" id="age" name="age" required>
+          </div>
+		  <div class="form-group">
+            <label for="recipient-name" class="col-form-label"> Retirement Age:</label>
+            <input type="number" class="form-control" id="retirementage" name="retirementage" required>
+          </div>
+		  <div class="form-group">
+			<label for="exampleFormControlSelect1">Risk Level</label>
+			<select class="form-control" id="risklevel">
+			  <option value="Low">Low</option>
+			  <option value="Moderate" checked>Moderate</option>
+			  <option value="High">High</option>
+			</select>
+		  </div>
+		  <div class="form-group">
+				<input type="submit" onclick="start()" data-dismiss="modal" class="form-control bg-info text-light" id="submit" value="submit">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+         
+        <!--<button type="button" display="hidden" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		-->
+     </div>
+    </div>
+  </div>
+</div>
+
+<!--- Processing model-->
+<div class="modal" tabindex="-1" role="dialog" id="myModal1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Your Journey:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+            <label for="recipient-name" id="datains" class="col-form-label">Thank You for completing the journey.Please Wait while we fetch you the best recommendations.</label>
+			
+<label for="recipient-name" id="datains1" class="col-form-label" style="display:none;">
+	ADVISED
+
+Goal: Retirement
+Fund 1397 has generated the maximum return.
+Rating =  5 Average Return =  10.5
+***********************************************
+Goal: Home
+Fund 680 has generated the maximum return.
+Rating =  4 Average Return =  9.0
+***********************************************
+
+*************PLEASE CHECK THE BELOW SUGGESSTION FOR FURTHER WEALTH CREATION AND PLANNING**************
+
+Investors at you age have also invested to purchase a Car.
+Goal: Car
+Fund 1766 has generated the maximum return.
+Rating =  3 Average Return =  6.0
+***********************************************
+Investors at you age have also invested to plan for their Marriage.
+Goal: Marriage
+Fund 1767 has generated the maximum return.
+Rating =  5 Average Return =  9.0
+***********************************************
+
+
+NON-ADVISED
+
+Goal: Retirement
+Advisor 105 has generated the maximum return investing in fund 1397 .
+Rating =  5 Average Return =  10.5
+***********************************************
+Goal: Home
+Advisor 105 has generated the maximum return investing in fund 680 .
+Rating =  4 Average Return =  9.0
+***********************************************
+
+*************PLEASE CHECK THE BELOW SUGGESSTION FOR FURTHER WEALTH CREATION AND PLANNING**************
+
+Investors at you age have also invested to purchase a Car.
+Goal: Car
+Advisor 107 has generated the maximum return investing in fund 766 .
+Rating =  3 Average Return =  6.0
+***********************************************
+Investors at you age have also invested to plan for their Marriage.
+Goal: Marriage
+Advisor 107 has generated the maximum return investing in fund 767 .
+Rating =  5 Average Return =  9.0
+***********************************************
+</label>
+			
+
+       </div>
+		
+      <div class="modal-footer">
+        <button type="button" id="csvDownload" onclick='downloadCSV({ filename: "investor-data.csv" });' class="btn btn-primary">Proceed</button>
+        <button type="button"  id="closeModal" onClick="document.location.reload(true)" style="display:none;" class="btn btn-secondary" data-dismiss="modal">Close</button>		
+     </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    
+	    <div class="col-sm">
+	
+      <div class="w1">
+	  <nav class="navbar navbar-dark bg-info">
+	  <a class="navbar-brand text-light">Click to add in your list</a>
+	</nav>
+		<div class="containerImg" id="car1">
+		 <img src="car.png"  alt="Car" style="width:80%;height:150px;"></a>
+		 <button class="btn" type="button" onclick="showDivCar();">Car</button>
+		</div>
+		<div class="containerImg" id="home1">
+		   <a href="#" ><img src="home.png" alt="home" style="width:80%;height:150px;"></a>
+		  <button class="btn" onclick="showDivHome();">Home</button>
+		</div>
+		<div class="containerImg" id="marriage1">
+		   <a href="#" ><img src="marriage.png" alt="marriage" style="width:80%;height:150px;"></a>
+		   <button class="btn" onclick="showDivMarriage();">Marriage</button>
+		</div>
+	  </div>
+    </div>
+	
+    <div class="col-sm">
+	<div class="w2">
+      <img id= "walkstop" src="aging5.gif" height="230px"/>
+	  </div>
+	  <div class="w2">
+       <div class="w4" id="aging"></div>
+	  </div>
+	  <div class="w2">
+			
+			<div class="w3"><div class="left">Name:-</div> <div class="right" id="demoname">Waiting...</div></div>
+			<div class="w3"><div class="left">Age:-</div> <div class="right" id="demoage">Waiting...</div></div>
+			<div class="w3"><div class="left">Rtr-Age:-</div> <div class="right"  id="demortrage">Waiting...</div></div>
+			<div class="w3"><div class="left">Risk Level:</div> <div class="right" id="demorisklevel">Waiting...</div></div>
+			
+		</div>
+    </div>
+	
+	<div class="col-sm">
+	<div class="w1">
+		<nav class="navbar navbar-dark bg-info">
+		<a class="navbar-brand text-light">This is You</a>
+		</nav>
+		
+		<div class="w2">
+			<div class="containerImg1" id="car">
+			  <img src="car.png" alt="Car" style="width:80%;height:150px;">
+			  <button class="btn" type="disabled" id="carage"></button>
+			</div>
+			<div class="containerImg1" id="home">
+			   <img src="home.png" alt="home" style="width:80%;height:150px;">
+			   <button class="btn" type="disabled" id="homeage"></button>
+			</div>
+			<div class="containerImg1" id="marriage">
+			   <img src="marriage.png" alt="marriage" style="width:80%;height:150px;">
+			    <button class="btn" type="disabled" id="marriageage"></button>
+			</div>
+		</div>
+	</div>
+		
+	</div>
+
+  </div>
+  
+
+</div>
+
+</body>
+
+<footer class="w3-container w3-center w3-margin-top bg-info" style="background-color: #21ace0;">
+  <p>On social media.</p>
+  
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  
+</footer>
+</html>
